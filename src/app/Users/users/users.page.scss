@@ -1,0 +1,311 @@
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-left: 3px solid transparent;
+}
+
+.menu li:hover,
+.menu li.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #ffb74d;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 14px;
+  background-color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.app-container {
+  display: flex;
+  height: 100vh; /* Đảm bảo full chiều cao màn hình */
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #1e1e2f, #2e2e42);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.1);
+  height: 100vh; /* Quan trọng: kéo dài xuống cuối */
+  position: sticky;
+  top: 0;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: auto;
+}
+.sidebar {
+  width: 200px;
+  background-color: #1e1e2f;
+  padding: 20px 10px;
+  color: white;
+  border-right: 2px solid #333;
+  min-height: 100vh;
+}
+.sidebar .logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.sidebar .menu li {
+  list-style: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.section-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.user-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+}
+
+.user-table thead {
+  background-color: #007bff;
+  color: #fff;
+  text-align: left;
+}
+
+.user-table th, .user-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+
+/* Vai trò badge màu */
+.role-badge {
+  padding: 4px 8px;
+  border-radius: 8px;
+  color: white;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.role-badge.quản lý {
+  background-color: #28a745;
+}
+
+.role-badge.nhân viên {
+  background-color: #007bff;
+}
+
+.role-badge.kế toán {
+  background-color: #fd7e14;
+}
+
+
+  .sidebar.show {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+  .main-content {
+    padding: 10px;
+  }
+
+  .module-row {
+    flex-direction: column;
+  }
+
+  .module-button {
+    width: 100%;
+  }
+
+/* Phần main content tổng thể */
+.main-content {
+  flex: 1;
+  padding: 1rem;
+  width: 100%;
+}
+
+/* Nút chức năng (ion-row) */
+ion-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+/* Tiêu đề section */
+.section-title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Bảng danh sách nhân viên */
+.user-table-wrapper {
+  overflow-x: auto;
+}
+
+.user-table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.user-table thead {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.user-table th,
+.user-table td {
+  text-align: center;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dee2e6;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.user-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Pagination */
+ion-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  font-size: 1rem;
+}
+
+/* Responsive Mobile */
+/* Sidebar chính */
+.sidebar {
+  width: 240px;
+  background-color: #343a40;
+  color: #fff;
+  height: 100vh;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar .logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.sidebar .menu {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar .menu li {
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sidebar .menu li:hover {
+  background-color: #495057;
+}
+
+.sidebar .menu li.active {
+  background-color: #007bff;
+  font-weight: bold;
+}
+
+/* Responsive sidebar trên mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.sidebar-mobile-visible {
+    transform: translateX(0);
+  }
+
+  /* Nút toggle ☰ */
+  .sidebar-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 1.2rem;
+    border-radius: 4px;
+  }
+
+  /* Responsive cho các phần khác */
+  .user-table {
+    min-width: 100%;
+    font-size: 0.875rem;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  ion-button,
+  ion-footer {
+    font-size: 0.9rem;
+  }
+}

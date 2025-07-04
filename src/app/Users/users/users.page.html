@@ -1,0 +1,112 @@
+<div class="app-container d-flex">
+
+  <button style="margin-top: 50px" class="sidebar-toggle d-md-none" (click)="toggleSidebar()">
+    ☰
+  </button>
+
+  <!-- Sidebar -->
+  <div class="sidebar"[class.sidebar-mobile-visible]="isSidebarVisible">
+    <div class="logo">☕ CoffeeSoft</div>
+    <ul class="menu">
+      <li routerLink="./admin">Hệ thống</li>
+      <li routerLink="/admin">DashBoard</li>
+      <li class="active" routerLink="/users">Nhân Viên</li>
+      <li routerLink="/store">Cửa hàng</li>
+      <li routerLink="/table">Bàn</li>
+      <li routerLink="/discount">Thực Đơn</li>
+      <li routerLink="/noibo">Nội Bộ</li>
+      <li routerLink="/order">Đặt và Thanh Toán</li>
+      <li routerLink="/report">Báo cáo</li>
+    </ul>
+  </div>
+
+  <!-- Main content -->
+  <div class="main-content mt-5">
+    <!-- Nút chức năng -->
+    <ion-row class="ion-justify-content-center gap-2 py-4">
+      <ion-button color="success" (click)="addUser()">
+        <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+        Thêm
+      </ion-button>
+
+      <ion-button
+        color="warning"
+        slot="end"
+        (click)=" editUser(); $event.stopPropagation()">
+        <ion-icon slot="start" name="create-outline"></ion-icon>
+        Sửa
+      </ion-button>
+      <ion-button color="danger">
+        <ion-icon slot="start" name="trash-outline"></ion-icon>
+        Xóa
+      </ion-button>
+    </ion-row>
+
+    <h2 class="section-title">Danh sách Nhân Viên</h2>
+
+    <!-- Bảng danh sách -->
+    <div class="user-table-wrapper">
+      <table class="user-table">
+        <thead>
+        <tr>
+          <th>Tên đăng nhập</th>
+          <th>Họ và tên</th>
+          <th>Số điện thoại</th>
+          <th>Email</th>
+          <th>Vai trò</th>
+          <th>Hành động</th> <!-- Thêm cột này -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of paginatedUsers">
+          <td>{{ item.username }}</td>
+          <td>{{ item.fullname }}</td>
+          <td>{{ item.phoneNumber }}</td>
+          <td>{{ item.email }}</td>
+          <td>
+        <span [ngClass]="(item.role?.toString()?.toLowerCase() || '')">
+          {{ item.role }}
+        </span>
+          </td>
+          <td>
+            <!-- Nút Sửa -->
+            <ion-button
+              color="warning"
+              size="small"
+              (click)="selectUser(item); editUser(); $event.stopPropagation()">
+              <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+            </ion-button>
+            <!-- Nút xóa -->
+            <ion-button color="danger" size="small" (click)="confirmDelete(item)">
+              <ion-icon slot="start" name="trash-outline"></ion-icon>
+              Xóa
+            </ion-button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+
+      <p *ngIf="!isLoading && !errorMessage && users.length === 0" class="ion-text-center mt-4 text-muted" style="font-style: italic; color: #999;">
+        <ion-icon name="alert-circle-outline" style="font-size: 24px; vertical-align: middle; margin-right: 8px;"></ion-icon>
+        Không tìm thấy nhân viên nào.
+      </p>
+
+
+
+
+      <!-- Pagination -->
+      <ion-footer class="ion-text-center ion-padding" style="--background: transparent;">
+        <ion-button fill="clear" size="small" color="medium" (click)="firstPage()" [disabled]="currentPage === 1">⏮️</ion-button>
+        <ion-button fill="clear" size="small" color="medium" (click)="prevPage()" [disabled]="currentPage === 1">◀️</ion-button>
+
+        Trang <strong>{{ currentPage }}</strong> / {{ totalPages }}
+
+        <ion-button fill="clear" size="small" color="medium" (click)="nextPage()" [disabled]="currentPage === totalPages">▶️</ion-button>
+        <ion-button fill="clear" size="small" color="medium" (click)="lastPage()" [disabled]="currentPage === totalPages">⏭️</ion-button>
+      </ion-footer>
+
+    </div>
+
+  </div>
+</div>

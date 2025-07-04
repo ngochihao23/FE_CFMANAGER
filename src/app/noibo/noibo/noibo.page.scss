@@ -1,0 +1,119 @@
+
+
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #1e1e2f, #2e2e42);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-left: 3px solid transparent;
+}
+
+.menu li:hover,
+.menu li.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #ffb74d;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 14px;
+  background-color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.module-container {
+  background: #f8f1ea; /* Màu nền kiểu cà phê sữa */
+  border: 2px solid #d2b48c; /* Viền màu cà phê nâu nhạt */
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 40px;
+}
+.sidebar {
+  width: 200px;
+  background-color: #1e1e2f;
+  padding: 20px 10px;
+  color: white;
+  border-right: 2px solid #333;
+  min-height: 100vh;
+}
+.sidebar .logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.sidebar .menu li {
+  list-style: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+/* Sidebar mặc định ẩn trên mobile */
+/* Sidebar chính */
+/* Mặc định ẩn trên mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .sidebar.sidebar-visible {
+    transform: translateX(0); /* Khi bật */
+  }
+
+  .sidebar-toggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1101;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    font-size: 1.2rem;
+  }
+}

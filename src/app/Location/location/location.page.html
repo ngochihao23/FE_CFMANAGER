@@ -1,0 +1,85 @@
+<ion-content [fullscreen]="true">
+  <!-- Banner -->
+  <div class="top-banner text-center text-white py-4 shadow-sm">
+    <h1 class="display-6 fw-bold m-0">
+      FIND A <span class="highlight-text">LOCATION</span>
+    </h1>
+  </div>
+
+
+  <!-- Map + Search Section -->
+  <div class="container my-4">
+    <div class="row gy-3">
+      <!-- Map -->
+      <div class="col-12">
+        <div class="rounded overflow-hidden shadow-sm">
+          <iframe
+            class="w-100"
+            style="min-height: 300px; border: 0;"
+            src="https://maps.google.com/maps?q=25%20Dockhead,%20London&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <div class="col-12 col-md-8 mx-auto">
+        <input
+          class="form-control mb-2"
+          type="text"
+          placeholder="🔍 Find Locations"
+          [(ngModel)]="searchLocation"
+        />
+        <p class="text-muted small text-center">
+          We cannot find your current location. Please search above.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer
+    class="footer-section text-white py-5 position-relative"
+    style="background: url('/assets/img/image9.png') center center / cover no-repeat;" >
+    <div class="footer-overlay position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.6);"></div>
+
+    <div class="container position-relative font-poping">
+      <div class="row gy-4">
+        <!-- Menu -->
+        <div class="col-12 col-md-4 text-center text-md-start" style="font-weight: bold">
+          <ul class="list-unstyled text-uppercase letter-spacing">
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Home</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">About</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Menu</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Products</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">News</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Locations</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-12 col-md-4 text-center">
+          <h6 class="text-uppercase mb-2">Contact</h6>
+          <p class="mb-1">25 Dockhead, London SE1 2BS</p>
+          <p>
+            <a href="tel:02071313535" class="text-white text-decoration-underline">Tel: 020 7131 3535</a>
+          </p>
+        </div>
+
+        <!-- Logo -->
+        <div class="col-12 col-md-4 text-center text-md-end">
+          <div class="footer-logo d-inline-block border border-white px-3 py-2">
+            <span class="fw-bold fs-4">BARTONS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="row mt-4">
+        <div class="col text-center small">
+          &copy; 2023 Bartonsuk Limited. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+</ion-content>

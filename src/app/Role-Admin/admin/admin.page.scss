@@ -1,0 +1,318 @@
+/* Reset và font */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #1e1e2f, #2e2e42);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-left: 3px solid transparent;
+}
+
+.menu li:hover,
+.menu li.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #ffb74d;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 14px;
+  background-color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.module-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 25px;
+}
+
+.module-row {
+  display: flex;
+  gap: 35px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.module-button {
+  background: linear-gradient(135deg, #ffffff, #fafafa);
+  border: 1px solid #ddd;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  padding: 25px 30px;
+  border-radius: 16px;
+  min-width: 220px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+
+.module-button:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(135deg, #fef3e2, #fff7e6);
+  border-color: #ffb74d;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+.module-container {
+  background: #f8f1ea; /* Màu nền kiểu cà phê sữa */
+  border: 2px solid #d2b48c; /* Viền màu cà phê nâu nhạt */
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 40px;
+}
+.module-container {
+  padding: 16px 0;
+  width: 100%;
+}
+
+.module-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.module-row {
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+.module-button {
+  flex: 1;
+  background: linear-gradient(135deg, #a76f55, #c79c6e);
+  color: white;
+  border-radius: 12px;
+  padding: 22px 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 8px 15px rgba(167,111,85,0.3);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.15s ease;
+  border: none;
+  /* Nếu dùng <button> thay div, border:none sẽ cần */
+}
+
+.module-button:hover {
+  background: linear-gradient(135deg, #c79c6e, #a76f55);
+  box-shadow: 0 12px 24px rgba(199,156,110,0.5);
+  transform: translateY(-4px);
+}
+
+/* Responsive nhỏ hơn 768px thì xếp dọc */
+@media (max-width: 768px) {
+  .module-row {
+    flex-direction: column;
+  }
+
+  .module-button {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+}
+/* Reset cơ bản */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #6f4e37; /* nâu cà phê */
+  color: #fff;
+  width: 220px;
+  padding: 20px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.menu {
+  list-style: none;
+  flex-grow: 1;
+}
+
+.menu li {
+  padding: 12px 15px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+}
+
+.menu li.active,
+.menu li:hover {
+  background-color: #d2b48c;
+  color: #3e2723;
+}
+
+/* Main content */
+.main-content {
+  flex-grow: 1;
+  background: #f9f4ef;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #4e342e;
+}
+
+.module-container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 8px rgb(0 0 0 / 0.1);
+  flex-grow: 1;
+}
+
+.module-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.module-row {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.module-button {
+  flex: 1;
+  background: #6f4e37;
+  color: white;
+  padding: 15px 10px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s;
+}
+
+.module-button:hover {
+  background-color: #5d4037;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: none; /* Ẩn sidebar mặc định */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+
+  .sidebar.show {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Tạo nút hamburger */
+  .hamburger {
+    background: #6f4e37;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    user-select: none;
+    width: 100%;
+  }
+
+  .main-content {
+    padding: 10px;
+  }
+
+  .module-row {
+    flex-direction: column;
+  }
+
+  .module-button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,353 @@
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-left: 3px solid transparent;
+}
+
+.menu li:hover,
+.menu li.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #ffb74d;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 14px;
+  background-color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.app-container {
+  display: flex;
+  height: 100vh; /* Đảm bảo full chiều cao màn hình */
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #1e1e2f, #2e2e42);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.1);
+  height: 100vh; /* Quan trọng: kéo dài xuống cuối */
+  position: sticky;
+  top: 0;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: auto;
+}
+.table-using {
+  border-left: 6px solid #fbbf24; // màu vàng (Tailwind: yellow-400)
+  background-color: #fffbea;     // nền vàng nhạt
+}
+
+.table-empty {
+  border-left: 6px solid #22c55e; // màu xanh lá (Tailwind: green-500)
+  background-color: #f0fdf4;      // nền xanh nhạt
+}
+.sidebar {
+  width: 200px;
+  background-color: #1e1e2f;
+  padding: 20px 10px;
+  color: white;
+  border-right: 2px solid #333;
+  min-height: 100vh;
+}
+.sidebar .logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.sidebar .menu li {
+  list-style: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.sidebar .menu li:hover,
+.sidebar .menu li.active {
+  background-color: #3a3a4f;
+  color: #ffc107;
+}
+ion-card.table-using {
+  background: #fffbe6;
+}
+ion-card.table-empty {
+  background: #f4f6f8;
+}
+ion-card {
+  transition: all 0.3s ease-in-out;
+}
+ion-popover::part(content) {
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+ion-item {
+  border-bottom: 1px solid #eee;
+}
+/* Giảm độ tối của nền khi mở modal */
+.modal-backdrop.show {
+  opacity: 0.25 !important;
+}
+
+/* ----------- Main container ----------- */
+.main-content {
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+/* ----------- Card bàn ----------- */
+.card {
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* ----------- Status style ----------- */
+.bg-success {
+  background-color: #198754 !important;
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+/* ----------- Button spacing ----------- */
+.card .btn {
+  flex: 1;
+  min-width: 80px;
+}
+
+/* ----------- Món ăn đã gọi ----------- */
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.95rem;
+}
+
+.badge.bg-primary {
+  font-size: 0.9rem;
+  padding: 0.6em 1em;
+}
+
+/* ----------- Form Thêm bàn ----------- */
+.card form .form-control,
+.card form .form-select {
+  border-radius: 8px;
+}
+
+/* ----------- Modal ----------- */
+.modal-content {
+  border-radius: 16px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* ----------- Responsive ----------- */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  h2, h4 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .card .btn {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .modal-dialog {
+    margin: 1rem auto;
+  }
+
+  .form-label {
+    font-size: 0.9rem;
+  }
+
+  .form-control, .form-select {
+    font-size: 0.9rem;
+  }
+}
+
+/* ----------- Extra: Darken occupied card ----------- */
+.card.bg-success {
+  background: linear-gradient(135deg, #157347, #198754);
+}
+/* --- Mặc định sidebar hiển thị trên desktop --- */
+.sidebar {
+  width: 240px;
+  background-color: #343a40;
+  color: white;
+  height: 100vh;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  transition: transform 0.3s ease-in-out;
+
+  /* Ẩn trên mobile */
+  @media (max-width: 768px) {
+    .user-table {
+      min-width: 100%;
+      font-size: 0.875rem;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+    }
+
+    ion-button {
+      font-size: 0.9rem;
+    }
+
+    ion-footer {
+      font-size: 0.9rem;
+    }
+  }
+  /* Sidebar chính */
+  .sidebar {
+    width: 240px;
+    background-color: #343a40;
+    color: #fff;
+    height: 100vh;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    .menu {
+      list-style: none;
+      padding: 0;
+
+      li {
+        padding: 0.75rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.2s;
+
+        &:hover {
+          background-color: #495057;
+        }
+
+        &.active {
+          background-color: #007bff;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      transform: translateX(-100%);
+    }
+
+    .sidebar.sidebar-mobile-visible { /* Ẩn sidebar trên mobile */
+      .sidebar {
+        width: 250px;
+        background-color: #343a40;
+        color: white;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transition: transform 0.3s ease;
+        z-index: 999;
+      }
+
+      /* Mặc định: ẩn sidebar trên mobile */
+      @media (max-width: 768px) {
+        .sidebar {
+          transform: translateX(-100%);
+        }
+
+        .sidebar.sidebar-mobile-visible {
+          transform: translateX(0);
+        }
+      }
+
+      /* Định dạng nút toggle */
+      .sidebar-toggle {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 1000;
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        font-size: 1.2rem;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+  /* Fade in animation */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bouncy icon animation */
+@keyframes bounceIcon {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}

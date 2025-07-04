@@ -1,0 +1,65 @@
+<ion-content [fullscreen]="true" class="login-content">
+  <div class="login-container d-flex">
+
+    <!-- Hình bên trái -->
+    <div class="login-left js-tilt" data-tilt>
+      <img src="assets/img/sectioncf.png" alt="coffee background">
+    </div>
+
+    <!-- Form bên phải -->
+    <div class="login-right">
+      <div class="login-box">
+
+        <!-- Logo và tiêu đề -->
+        <div class="logo text-center">
+          <img src="assets/icon/Logo.png" alt="Cafe Beans Logo">
+          <h2 class="text-white">CAFFEE<br><strong>BARTION</strong></h2>
+        </div>
+
+        <!-- Chào mừng -->
+        <h3 class="text-white">Welcome Back, Please login to your account</h3>
+
+        <!-- Form đăng nhập -->
+        <form (ngSubmit)="login()">
+
+          <!-- Email -->
+          <label class="text-white">Email address</label>
+          <div class="wrap-input100">
+            <input class="input100" type="email" placeholder="Email address"
+                   [(ngModel)]="loginData.email" name="username" required>
+            <span class="symbol-input100"><i class='bx bx-user'></i></span>
+          </div>
+
+          <!-- Password -->
+          <label class="text-white">Password</label>
+          <div class="wrap-input100 password-group position-relative">
+            <input class="input100" type="{{ showPassword ? 'text' : 'password' }}" placeholder="Password"
+                   [(ngModel)]="loginData.password" name="password" required id="password-field">
+            <span class="symbol-input100"><i class='bx bx-key'></i></span>
+            <span class="bx field-icon"
+                  [ngClass]="showPassword ? 'bx-show' : 'bx-hide'"
+                  (click)="togglePassword()" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); cursor:pointer;">
+            </span>
+
+          </div>
+
+          <!-- Ghi nhớ và quên mật khẩu -->
+          <div class="options d-flex justify-content-between align-items-center mt-3">
+            <label class="text-white"><input type="checkbox"> Remember me</label>
+            <a href="/forgot.html" class="text-white">Forgot password?</a>
+          </div>
+
+          <!-- Nút đăng nhập -->
+          <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary login-btn">Sign In</button>
+            <div *ngIf="loading" class="text-white">Đang đăng nhập...</div>
+
+          </div>
+        </form>
+
+
+
+      </div>
+    </div>
+  </div>
+</ion-content>

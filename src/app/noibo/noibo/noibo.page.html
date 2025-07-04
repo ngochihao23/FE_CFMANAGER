@@ -1,0 +1,107 @@
+<div class="app-container">
+  <!-- Nút toggle sidebar hiển thị trên mobile -->
+  <button class="sidebar-toggle d-md-none" (click)="toggleSidebar()" style="margin-top: 50px">
+    ☰
+  </button>
+
+  <!-- Sidebar -->
+  <div class="sidebar" [class.sidebar-visible]="isSidebarVisible">
+    <div class="logo">☕ CoffeeSoft</div>
+    <ul class="menu">
+      <li routerLink="./admin">Hệ thống</li>
+      <li routerLink="/admin">DashBoard</li>
+      <li  routerLink="/users">Nhân Viên</li>
+      <li routerLink="/store">Cửa hàng</li>
+      <li routerLink="/table">Bàn</li>
+      <li routerLink="/menu-item">Thực Đơn</li>
+      <li class="active" routerLink="/noibo">Nội Bộ</li>
+      <li routerLink="/order">Đặt và Thanh Toán</li>
+      <li routerLink="/report">Báo cáo</li>
+    </ul>
+  </div>
+
+  <!-- Main content -->
+  <main class="app-content container">
+    <div class="app-title">
+      <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item">Quản lý nội bộ</li>
+        <li class="breadcrumb-item"><a href="#">Tạo mới</a></li>
+      </ul>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="tile border rounded shadow-sm p-4 bg-white">
+          <h3 class="tile-title mb-4">Tạo mới danh sách nội bộ</h3>
+
+          <!-- Button tạo tình trạng mới -->
+          <div class="row mb-3">
+            <div class="col-sm-4">
+              <button class="btn btn-add btn-sm" (click)="openModal()">
+                <i class="fas fa-folder-plus"></i> Tạo tình trạng mới
+              </button>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <form class="row g-3" #internalForm="ngForm">
+            <div class="form-group col-md-4">
+              <label class="control-label">Họ và tên</label>
+              <input class="form-control" type="text" name="fullName" ngModel required />
+            </div>
+
+            <div class="form-group col-md-4">
+              <label class="control-label">Ngày sinh</label>
+              <input class="form-control" type="date" name="birthDate" ngModel />
+            </div>
+
+            <div class="form-group col-md-4">
+              <label class="control-label">Chức vụ</label>
+              <select class="form-control" name="position" ngModel required>
+                <option value="">-- Chọn chức vụ --</option>
+                <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+              </select>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label class="control-label">Nhập lý do</label>
+              <textarea class="form-control" rows="4" name="reason" ngModel></textarea>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label class="control-label">Tình trạng</label>
+              <select class="form-control" name="status" ngModel required>
+                <option value="">-- Chọn tình trạng --</option>
+                <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+              </select>
+            </div>
+          </form>
+
+          <!-- Footer buttons -->
+          <div class="tile-footer text-end mt-4">
+            <button class="btn btn-save me-2" (click)="save()">Lưu lại</button>
+            <a class="btn btn-cancel" routerLink="/admin/table-data-banned">Hủy bỏ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" tabindex="-1" [class.show]="isModalOpen" [style.display]="isModalOpen ? 'block' : 'none'">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h5>Tạo tình trạng mới</h5>
+            <div class="form-group">
+              <label class="control-label">Nhập tình trạng</label>
+              <input class="form-control" [(ngModel)]="newStatus" name="newStatus" />
+            </div>
+            <br />
+            <button class="btn btn-save" (click)="addStatus()">Lưu lại</button>
+            <button class="btn btn-cancel" (click)="closeModal()">Hủy bỏ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

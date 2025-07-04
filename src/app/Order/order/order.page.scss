@@ -1,0 +1,242 @@
+.bg-brown {
+  background-color: #5b2c24;
+}
+
+
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #1e1e2f, #2e2e42);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-left: 3px solid transparent;
+}
+
+.menu li:hover,
+.menu li.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #ffb74d;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 14px;
+  background-color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.module-container {
+  background: #f8f1ea; /* Màu nền kiểu cà phê sữa */
+  border: 2px solid #d2b48c; /* Viền màu cà phê nâu nhạt */
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 40px;
+}
+.tables-list {
+  background-color: #f9f9f9;
+}
+
+.tables-list button {
+  transition: all 0.25s ease-in-out;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.tables-list button.btn-primary {
+  background: linear-gradient(45deg, #a76f55, #c79c6e);
+  border: none;
+  color: white;
+  box-shadow: 0 6px 12px rgba(167,111,85,0.7);
+}
+
+.tables-list button.btn-outline-primary {
+  border-color: #a76f55;
+  color: #a76f55;
+}
+
+.tables-list button:hover:not(.btn-primary) {
+  background-color: #a76f55;
+  color: white;
+}
+
+.orders-panel {
+  font-family: 'Poppins', sans-serif;
+  background: white;
+}
+
+.orders-panel table {
+  font-size: 14px;
+}
+
+.orders-panel h5 {
+  font-weight: 600;
+  color: #6d4c41;
+}
+
+.card {
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card-title {
+  font-weight: 600;
+  color: #6d4c41;
+}
+
+.btn-outline-success {
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+.btn-outline-success:hover {
+  background-color: #4caf50;
+  color: white;
+}
+.sidebar {
+  width: 200px;
+  background-color: #1e1e2f;
+  padding: 20px 10px;
+  color: white;
+  border-right: 2px solid #333;
+  min-height: 100vh;
+}
+.sidebar .logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.sidebar .menu li {
+  list-style: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.sidebar {
+  width: 240px;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-right: 1px solid #dee2e6;
+  min-height: 100vh;
+}
+
+/* Sidebar chính */
+.sidebar {
+  width: 240px;
+  background-color: #343a40;
+  color: #fff;
+  height: 100vh;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar .logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.sidebar .menu {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar .menu li {
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sidebar .menu li:hover {
+  background-color: #495057;
+}
+
+.sidebar .menu li.active {
+  background-color: #007bff;
+  font-weight: bold;
+}
+
+/* Responsive sidebar trên mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.sidebar-mobile-visible {
+    transform: translateX(0);
+  }
+
+  /* Nút toggle ☰ */
+  .sidebar-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 1.2rem;
+    border-radius: 4px;
+  }
+
+  /* Responsive cho các phần khác */
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  ion-button,
+  ion-footer {
+    font-size: 0.9rem;
+  }
+}
+

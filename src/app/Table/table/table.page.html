@@ -1,0 +1,194 @@
+<link rel="stylesheet" href="table.page.scss">
+<div class="app-container d-flex mt-5">
+  <!-- Sidebar -->
+  <!-- Nút mở sidebar cho mobile -->
+  <button style="margin-top: 50px" class="sidebar-toggle d-md-none" (click)="toggleSidebar()">
+    ☰
+  </button>
+
+  <!-- Sidebar -->
+  <div style="margin-top: 20px" class="sidebar" [class.sidebar-mobile-visible]="isSidebarVisible">
+    <div class="logo">☕ CoffeeSoft</div>
+    <ul class="menu">
+      <li routerLink="./admin">Hệ thống</li>
+      <li routerLink="/admin">DashBoard</li>
+      <li routerLink="/users">Nhân Viên</li>
+      <li routerLink="/store">Cửa hàng</li>
+      <li class="active" routerLink="/table">Bàn</li>
+      <li routerLink="/discount">Khuyến mãi</li>
+      <li routerLink="/noibo">Nội Bộ</li>
+      <li routerLink="/order">Đặt và Thanh Toán</li>
+      <li routerLink="/report">Báo cáo</li>
+    </ul>
+  </div>
+
+
+  <!-- Main Content -->
+  <div class="main-content flex-fill">
+
+    <!-- Header -->
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>📋 Quản lý Bàn</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <!-- Container -->
+    <div class="container mt-4">
+      <h2 class="section-heading">
+        <span class="icon">🪑</span>
+        Danh sách bàn
+      </h2>
+
+
+      <!-- Danh sách bàn -->
+      <div class="row">
+        <div class="col-md-4 col-sm-6 mb-4" *ngFor="let table of tables">
+          <div class="card shadow border-0" [ngClass]="{
+          'bg-success text-white': table.status === 'Occupied',
+          'bg-light': table.status === 'Available'
+        }">
+            <div class="card-body">
+              <h5 class="card-title">🪑 Bàn số {{ table.tableNumber }}</h5>
+              <p class="card-text">Trạng thái:
+                <span
+                  [ngClass]="{'text-warning': table.status === 'Occupied', 'text-success': table.status === 'Available'}">
+                {{ table.status === 'Occupied' ? 'Đang sử dụng' : 'Trống' }}
+              </span>
+              </p>
+              <div class="d-flex justify-content-between flex-wrap gap-2">
+                <button class="btn btn-outline btn-sm" (click)="showItems(table.id)">Xem món</button>
+                <button class="btn btn-info btn-sm" (click)="editTable(table)">✏️ Sửa</button>
+                <button class="btn btn-danger btn-sm" (click)="deleteTable(table.id)">🗑 Xoá</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Món ăn theo bàn -->
+      <!-- Món đã gọi cho bàn đang chọn -->
+      <div *ngIf="selectedTableId" class="mt-5">
+        <h4>🍽️ Món ăn của bàn số {{ getSelectedTableNumber() }}</h4>
+
+        <ul class="list-group mt-3" *ngIf="tableItems.length > 0; else noOrderItems">
+          <li *ngFor="let item of tableItems" class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <strong>{{ item.name }}</strong><br/>
+              <span class="text-muted">Giá: {{ item.price | currency:'VND' }}</span><br/>
+              <span>
+          Số lượng:
+          <button class="btn btn-sm btn-outline-secondary mx-1" (click)="decreaseQuantity(item)">−</button>
+                {{ item.quantity }}
+                <button class="btn btn-sm btn-outline-secondary mx-1" (click)="increaseQuantity(item)">+</button>
+        </span>
+            </div>
+            <span class="badge bg-primary rounded-pill">
+        {{ item.price * item.quantity | currency:'VND' }}
+      </span>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between">
+            <strong>Tổng cộng:</strong>
+            <strong>{{ getTotal() | currency:'VND' }}</strong>
+          </li>
+        </ul>
+
+        <!-- Nếu không có món nào -->
+        <ng-template #noOrderItems>
+          <p class="text-muted mt-2">Chưa có món nào được gọi.</p>
+        </ng-template>
+
+        <!-- Nút gọi món và thanh toán -->
+        <div class="d-grid gap-2 mt-3">
+          <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#menuModal">
+            ➕ Gọi món
+          </button>
+          <button class="btn btn-success" (click)="checkout()">
+            💰 Thanh toán
+          </button>
+        </div>
+      </div>
+
+      <!-- ✅ Modal chọn món -->
+      <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+          <div class="modal-content">
+
+            <!-- Header -->
+            <div class="modal-header">
+              <h5 class="modal-title" id="menuModalLabel">📋 Danh sách món ăn</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body">
+
+              <!-- ✅ Nếu có món ăn -->
+              <ng-container *ngIf="menuItems && menuItems.length > 0; else loadingOrEmpty">
+                <div class="row">
+                  <div class="col-md-6 mb-3" *ngFor="let item of menuItems">
+                    <div class="card h-100 shadow-sm">
+                      <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ item.name }}</h5>
+                        <p class="card-text">Giá: {{ item.price | currency:'VND':'symbol':'1.0-0' }}</p>
+
+                        <button
+                          class="btn btn-success mt-auto"
+                          (click)="handleCallItem(item)"
+                          data-bs-dismiss="modal"
+                        >
+                          ➕ Gọi món
+                        </button>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+
+              <!-- ❌ Nếu đang tải hoặc không có món -->
+              <ng-template #loadingOrEmpty>
+                <div class="text-center py-3 text-muted">
+                  <div class="spinner-border text-secondary mb-2" role="status" *ngIf="isLoading"></div>
+                  <p *ngIf="!isLoading">Không có món nào để hiển thị.</p>
+                </div>
+              </ng-template>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Form thêm / cập nhật -->
+      <div class="card mt-5 mb-4 p-4 shadow-sm">
+        <h5 class="mb-3">{{ editMode ? '✏️ Cập nhật bàn' : '➕ Thêm bàn mới' }}</h5>
+        <form (ngSubmit)="editMode ? updateTable() : createTable()">
+          <div class="mb-3">
+            <label class="form-label">Số bàn</label>
+            <input type="text" class="form-control" [(ngModel)]="newTable.tableNumber" name="tableNumber" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Trạng thái</label>
+            <select class="form-select" [(ngModel)]="newTable.status" name="status">
+              <option value="Available">Trống</option>
+              <option value="Occupied">Đang sử dụng</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">ID Cửa hàng</label>
+            <input type="text" class="form-control" [(ngModel)]="newTable.storeId" name="storeId" required>
+          </div>
+
+          <button type="submit" class="btn btn-success me-2">{{ editMode ? 'Lưu thay đổi' : 'Thêm bàn' }}</button>
+          <button type="button" class="btn btn-secondary" (click)="resetForm()">Huỷ</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,3 +1,179 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <!-- MOBILE SIDEMENU -->
+  <ion-menu side="start" contentId="main-content" type="overlay">
+    <ion-header translucent>
+      <ion-toolbar class="custom-toolbar">
+        <ion-title style="background: #9a644d">
+          <img src="assets/icon/Logo.png" style="height: 28px; vertical-align: middle;"/>
+          <span class="ms-2 text-white font-poping">Caffee Bartions</span>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding" style=" --background: url('../assets/img/bckground.png')">
+      <ion-list style="background: #9a644d" lines="full">
+        <ion-item routerLink="/home" button>🏠 Home</ion-item>
+        <ion-item routerLink="/about" button>📖 About</ion-item>
+        <ion-item routerLink="/menus" button>🍽️ Menu</ion-item>
+        <ion-item routerLink="/news" button>📰 News</ion-item>
+        <ion-item routerLink="/location" button>📍 Locations</ion-item>
+        <ion-item routerLink="/contact" button>📩 Contact</ion-item>
+      </ion-list>
+      <div class="ion-padding"
+           style="border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); border: 1px solid #9a644d; max-width: 400px; margin: 40px auto; text-align: center;">
+
+        <!-- Nếu chưa đăng nhập -->
+        <ng-container *ngIf="!isLoggedIn">
+          <ion-button expand="block" fill="solid" routerLink="/login"
+                      style="--background: rgba(172,119,80,0.9); --color: white; margin-bottom: 12px; font-weight: bold;">
+            Đăng nhập
+          </ion-button>
+
+          <ion-button expand="block" fill="outline" color="medium" routerLink="/sign-up"
+                      style="background-color: white; color: #333; border: 1px solid #ccc;">
+            Đăng ký
+          </ion-button>
+        </ng-container>
+
+        <!-- Nếu đã đăng nhập -->
+        <ng-container *ngIf="isLoggedIn">
+          <ion-button expand="block" fill="solid" routerLink="/admin"
+                      style="--background: rgba(172,119,80,0.9); --color: white; margin-bottom: 12px; font-weight: bold;">
+            Quản lý quán
+          </ion-button>
+
+          <ion-button expand="block" fill="outline" color="medium" (click)="logout()"
+                      style="background-color: white; color: #333; border: 1px solid #ccc;">
+            Đăng xuất
+          </ion-button>
+        </ng-container>
+      </div>
+
+
+    </ion-content>
+  </ion-menu>
+
+  <!-- HEADER -->
+  <ion-header>
+    <ion-toolbar class="custom-toolbar" color="#231712">
+      <!-- Mobile menu button -->
+      <ion-buttons slot="start">
+        <ion-menu-button class="ion-hide-md-up"></ion-menu-button>
+      </ion-buttons>
+
+      <!-- Logo + Brand -->
+      <ion-title class="brand-title ion-hide-sm-down">
+        <img src="assets/icon/Logo.png" routerLink="/home" style="height: 28px; vertical-align: middle;"/>
+        <span style="color: white" class="ms-2 brand-name" routerLink="/home">Caffee Bartion</span>
+      </ion-title>
+
+      <!-- Menu ở giữa cho desktop -->
+      <ion-buttons slot="secondary" class="center-menu ion-hide-sm-down menu-shift-left">
+        <ion-button
+          fill="clear"
+          routerLink="/home"
+          routerLinkActive="active-menu"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="menu-link"
+        >Home
+        </ion-button>
+
+        <ion-button
+          fill="clear"
+          routerLink="/about"
+          routerLinkActive="active-menu"
+          class="menu-link"
+        >About
+        </ion-button>
+
+        <ion-button
+          fill="clear"
+          routerLink="/menus"
+          routerLinkActive="active-menu"
+          class="menu-link"
+        >Menu
+        </ion-button>
+
+        <ion-button
+          fill="clear"
+          routerLink="/discount"
+          routerLinkActive="active-menu"
+          class="menu-link"
+        >News
+        </ion-button>
+
+        <ion-button
+          fill="clear"
+          routerLink="/location"
+          routerLinkActive="active-menu"
+          class="menu-link"
+        >Location
+        </ion-button>
+
+        <ion-button
+          fill="clear"
+          routerLink="/contact"
+          routerLinkActive="active-menu"
+          class="menu-link"
+        >Contact
+        </ion-button>
+      </ion-buttons>
+
+
+      <!-- Nếu chưa đăng nhập -->
+      <ion-buttons *ngIf="!isLoggedIn" slot="end" class="auth-buttons">
+        <!-- Nút Login -->
+        <ion-button fill="outline" routerLink="/login"
+                    style="--border-color: white; --color: white; font-weight: 500; border-radius: 8px; padding: 0 16px;">
+          Login
+        </ion-button>
+
+        <!-- Nút Sign Up -->
+        <ion-button fill="solid" color="light" routerLink="/sign-up"
+                    style="--background: white; --color: #6b4c3b; font-weight: 600; border-radius: 8px; margin-left: 10px; padding: 0 16px;">
+          Sign Up
+        </ion-button>
+      </ion-buttons>
+
+      <!-- Nếu đã đăng nhập -->
+      <div class="user-control-panel" *ngIf="isLoggedIn" style="margin-top: 8px;">
+        <ion-row
+          class="ion-align-items-center ion-justify-content-end font-poping"
+          style="gap: 12px; padding-right: 12px;"
+        >
+          <ion-label class="user-name" style="font-size: 16px; font-weight: 500; color: white; margin: 0;">
+            Xin chào, {{ fullName }}
+          </ion-label>
+
+          <div class="user-buttons">
+            <ion-button
+              fill="solid"
+              size="small"
+              color="light"
+              routerLink="/admin"
+              class="admin-btn"
+            >
+              Quản lý quán
+            </ion-button>
+
+            <ion-button
+              fill="outline"
+              size="small"
+              (click)="logout()"
+              class="logout-btn"
+            >
+              Đăng xuất
+            </ion-button>
+          </div>
+
+        </ion-row>
+      </div>
+
+
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Main content -->
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+
 </ion-app>

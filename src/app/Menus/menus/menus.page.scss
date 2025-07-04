@@ -1,0 +1,54 @@
+
+.bckground-menu {
+  background: url("../../../assets/img/bckground.png") no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;  /* cho full chiều cao màn */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+}
+.font-poping {
+  font-family: 'Poppins', sans-serif;
+}
+
+.menu-item {
+  border-bottom: 1px solid #d8c6b9;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background-color: #f8f1e7; /* nền be nhạt */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+.menu-item h5 {
+  color: #5c2c06; /* nâu đậm sang trọng */
+  font-weight: 700;
+}
+
+.menu-item small {
+  color: #8c7b68; /* xám nâu nhẹ, tinh tế */
+  font-style: italic;
+  font-size: 12px !important;
+}
+
+.menu-item span {
+  color: #a66e28; /* vàng đồng cho giá */
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 50px;
+}
+.footer-overlay {
+  background-color: rgba(0, 0, 0, 0.65); /* điều chỉnh độ tối tại đây */
+  z-index: 0;
+}
+.font-poping {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+
+}

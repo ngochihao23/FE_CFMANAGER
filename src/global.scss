@@ -35,3 +35,85 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+
+.map {
+  height: 300px;
+  width: 100%;
+}
+
+.modal-backdrop {
+  display: none !important;
+}
+/* Sidebar mặc định */
+.sidebar {
+  width: 250px;
+  background-color: #f8f9fa;
+  padding: 1rem;
+}
+
+/* Nút toggle chỉ hiện trên mobile */
+.sidebar-toggle {
+  display: none;
+}
+
+/* Mobile: ẩn sidebar, hiện toggle */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background-color: #fff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    width: 240px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .sidebar.sidebar-mobile-visible {
+    display: block;
+  }
+
+  .sidebar-toggle {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 20px;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+  }
+}
+
+/* Desktop: luôn hiển thị sidebar */
+@media (min-width: 769px) {
+  .sidebar {
+    display: block;
+    position: relative;
+  }
+
+  .main-content {
+    margin-left: 250px;
+  }
+
+  .sidebar-toggle {
+    display: none;
+  }
+}

@@ -1,0 +1,180 @@
+.hero-section-about {
+    height: 100vh;
+    background-image: url('../../../assets/img/about.png'); /* nếu có */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+.hero-section-about {
+  background: linear-gradient(to right, #1f1f1f, #2d2d2d); /* Nền tối gradient */
+  color: #fff;
+  padding: 100px 0;
+  min-height: 60vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section-about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../../../assets/img/about.png') center/cover no-repeat;
+  opacity: 0.15; /* Làm nền ảnh mờ nhẹ */
+  z-index: 0;
+}
+
+.hero-section-about .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section-about h1 {
+  font-size: 64px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Tạo chiều sâu cho chữ */
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+  .hero-section-about {
+    padding: 60px 0;
+  }
+
+  .hero-section-about h1 {
+    font-size: 36px;
+  }
+}
+
+.order-section-about {
+  background-image: url('/assets/img/section-order.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.order-section-about > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.order-section-about .container {
+  background-color: rgba(255, 255, 255, 0.45); /* trắng mờ */
+  border-radius: 12px;
+  padding: 2rem;
+}
+.order-section-about::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* màu đen 50% */
+  z-index: 0;
+}
+
+
+.product-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+.product-item p.font-poping {
+  margin-top: 0px; /* hoặc 0 nếu muốn sát hẳn */
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.booking-section {
+  background-color: #f5f5f7;
+
+  .booking-card {
+    background-color: #fff;
+    border-radius: 24px;
+  }
+
+  .calendar-box h4 {
+    font-size: 1.2rem;
+    color: #1a1a1a;
+  }
+  .calendar-container {
+    width: 100%;
+    max-width: 1000px;          /* hoặc 90vw nếu responsive */
+    margin: 0 auto;
+    aspect-ratio: 4 / 3;         /* không nên dùng 1/1 nếu có nhiều dòng */
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;           /* tránh tràn */
+  }
+  .calendar-scroll {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  /* Ngăn calendar tràn bằng cách giới hạn min-width phù hợp */
+  .calendar-scroll mwl-calendar-month-view {
+    display: block;
+    min-width: 550px; /* hoặc cao hơn nếu cần */
+  }
+
+
+  .people-box {
+    min-width: 260px;
+    margin-top: 25px;
+
+    .plus-minus-btn {
+      width: 48px;
+      height: 48px;
+      font-size: 1.25rem;
+      font-weight: bold;
+      line-height: 1;
+      border: 1px solid #ccc;
+      transition: all 0.2s;
+    }
+
+    .plus-minus-btn:hover {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .btn-primary {
+      background-color: #222d9d;
+      border: none;
+    }
+  }
+}
+ion-button.btn-primary {
+  --background: #222d9d; /* Màu nền Bootstrap primary */
+  --background-focused: #222d9d;
+  --background-hover: #222d9d;
+  --background-activated: #222d9d;
+
+  --color: white; /* Màu chữ */
+  --box-shadow: 0 0.125rem 0.25rem rgba(13, 110, 253, 0.5);
+
+  border-radius: 0.75rem; /* rounded-3 */
+  font-weight: 600;       /* fw-semibold */
+  padding: 0.5rem 1.5rem; /* py-2 px-5 */
+}
+
+ion-toast {
+  --color : white;
+}
+.footer-overlay {
+  background-color: rgba(0, 0, 0, 0.65); /* điều chỉnh độ tối tại đây */
+  z-index: 0;
+}
+.font-poping {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+
+}
+

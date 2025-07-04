@@ -1,20 +1,241 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Hero Section (không có navbar) -->
+  <section class="hero-section d-flex align-items-center">
+    <div class="container text-white">
+      <h1 class="display-4 fw-bold">FRESH COFFEE IN<br>THE MORNING</h1>
+      <p class="subtitle">
+        Freshly roasted Vietnamese beans, expertly brewed for your perfect morning.<br>
+        Sip, savor, and start your day right.
+      </p>
+      <button routerLink="/menu" class="btn btn-order mt-4">ORDER NOW</button>
+    </div>
+  </section>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <section
+    class="hero-section2 position-relative text-white d-flex align-items-center justify-content-center text-center text-md-end">
+    <div class="overlay"></div>
+
+    <div class="container position-relative z-2 px-3 pe-md-5 py-5">
+      <h2 class="display-3 fw-bold menu-title" style="font-size: 40px; color: #471E22;">
+        Welcome to Bartons incredibly
+      </h2>
+      <p class="lead" style="font-size: 21px; color: #fff;">
+        Your best local coffee. In addition to delicious<br>
+        sandwiches and cakes and hot dish of the day,
+      </p>
+        <ion-col size="auto" style="margin-right: 20px;">
+          <ion-button
+            routerLink="/admin"
+            fill="outline"
+            class="custom-view-more-button"
+          >
+            View More
+          </ion-button>
+        </ion-col>
+
+    </div>
+  </section>
+
+  <!-- Opening Hours -->
+  <div class="section text-white py-6"
+       style="background: url('../../assets/img/image 4.png') center/cover no-repeat; position: relative; padding: 120px 0;">
+    <div class="container position-relative z-2">
+      <div class="row align-items-center justify-content-center">
+        <!-- Cột tiêu đề -->
+        <div class="col-md-4 text-center mb-4 mb-md-0">
+          <div class="bg-dark bg-opacity-75 p-4 rounded-3">
+            <h2 class="fw-bold display-5 opening-font">Opening Hours</h2>
+          </div>
+        </div>
+        <!-- Cột giờ -->
+        <div class="col-md-6">
+          <div class="row text-center gx-5 gy-2">
+            <div class="col-6">
+              <p class="mb-1 fw-bold">Mon–Thu</p>
+              <p class="mb-3">08:00–18:00</p>
+              <p class="mb-1 fw-bold">Fri</p>
+              <p>08:00–19:00</p>
+            </div>
+            <div class="col-6">
+              <p class="mb-1 fw-bold">Sun</p>
+              <p class="mb-3">09:00–18:00</p>
+              <p class="mb-1 fw-bold">Sat</p>
+              <p>09:00–18:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Menu Section -->
+  <div class="section py-5 font-poping" id="menu"
+       style="background: url('../../assets/img/image 6.png') right center / cover no-repeat;">
+    <div class="container text-center">
+      <h3 class="menu-title mb-4 display-5 fw-bold">Our Menu</h3>
+      <div class="row justify-content-center">
+        <!-- Item 1 -->
+        <div class="col-12 col-sm-6 col-md-3 mb-4">
+          <div class="custom-card shadow rounded-4 p-3 h-100">
+            <img src="assets/img/Coffee.png" alt="Cappuccino" class="img-fluid rounded-3 mb-3"/>
+            <h5 class="fw-bold">Cappuccino</h5>
+            <p class="text-white small mb-3">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa, fermentum id id vitae.
+            </p>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-white">$8.60</span>
+              <a href="#" class="btn btn-order">Order now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="col-12 col-sm-6 col-md-3 mb-4">
+          <div class="custom-card shadow rounded-4 p-3 h-100">
+            <img src="assets/img/cf1.png" alt="Mocha" class="img-fluid rounded-3 mb-3"/>
+            <h5 class="fw-bold">Mocha</h5>
+            <p style="color: white;" class="small mb-3">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa, fermentum id id vitae.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-white">$9.20</span>
+              <a href="#" class="btn btn-order">Order now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="col-12 col-sm-6 col-md-3 mb-4">
+          <div class="custom-card shadow rounded-4 p-3 h-100">
+            <img src="assets/img/cf2.png" alt="Latte" class="img-fluid rounded-3 mb-3"/>
+            <h5 class="fw-bold">Latte</h5>
+            <p class="text-white small mb-3">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa, fermentum id id vitae.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-white">$11.40</span>
+              <a href="#" class="btn btn-order">Order now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="col-12 col-sm-6 col-md-3 mb-4">
+          <div class="custom-card shadow rounded-4 p-3 h-100">
+            <img src="assets/img/cf1.png" alt="Cold Java" class="img-fluid rounded-3 mb-3"/>
+            <h5 class="fw-bold">Cold Java</h5>
+            <p style="color: white;" class="small mb-3">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa, fermentum id id vitae.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="fw-bold text-white">$6.40</span>
+              <a href="#" class="btn btn-order">Order now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Customer Testimonials -->
+  <div class="section bg-review text-center py-5">
+    <div class="container">
+      <h3 class="text-white mb-5">What our Customers</h3>
+      <div class="row justify-content-center">
+
+        <!-- Review Card -->
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="card review-card">
+            <img src="assets/img/Ellipse%2039.png" class="review-avatar" alt="Customer">
+            <div class="stars">★ ★ ★ ★ ★</div>
+            <h5 class="review-title">As good as <br> advertised</h5>
+            <p class="review-text">“Lorem ipsum dolor sit amet, consectetur adipiscing elit,”</p>
+            <p class="review-author">Mrs Catherine White</p>
+            <p class="review-time">44 Hours Ago</p>
+          </div>
+        </div>
+
+        <!-- Repeat for other reviews -->
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="card review-card">
+            <img src="assets/img/Ellipse%2038.png" class="review-avatar" alt="Customer">
+            <div class="stars">★ ★ ★ ★ ★</div>
+            <h5 class="review-title">As good as <br> advertised</h5>
+            <p class="review-text">“Lorem ipsum dolor sit amet, consectetur adipiscing elit,”</p>
+            <p class="review-author">Mrs Catherine White</p>
+            <p class="review-time">44 Hours Ago</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="card review-card">
+            <img src="assets/img/Ellipse%2039.png" class="review-avatar" alt="Customer">
+            <div class="stars">★ ★ ★ ★ ★</div>
+            <h5 class="review-title">As good as <br> advertised</h5>
+            <p class="review-text">“Lorem ipsum dolor sit amet, consectetur adipiscing elit,”</p>
+            <p class="review-author">Mrs Catherine White</p>
+            <p class="review-time">44 Hours Ago</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Map Section -->
+  <div class="section p-0">
+    <iframe class="map" src="https://maps.google.com/maps?q=25%20Dockhead,%20London&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            frameborder="0"></iframe>
+  </div>
+
+  <footer class="footer-section text-white py-5 position-relative"
+          style="background: url('../../assets/img/image9.png') right center / cover no-repeat;">
+    <div class="footer-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+
+    <div class="container position-relative font-poping">
+      <div class="row align-items-start">
+        <!-- Menu -->
+        <div class="col-12 col-md-4 text-center text-md-start" style="font-weight: bold ; font-family: Poppins, sans-serif">
+          <ul class="list-unstyled text-uppercase letter-spacing">
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Home</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">About</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Menu</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">Products</a></li>
+            <li class="mb-2"><a href="#" class="text-white text-decoration-none">News</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Locations</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-12 col-md-4 text-center">
+          <h6 class="text-uppercase mb-2">Contact</h6>
+          <p class="mb-1">25 Dockhead, London SE1 2BS</p>
+          <p>
+            <a href="tel:02071313535" class="text-white text-decoration-underline">Tel: 020 7131 3535</a>
+          </p>
+        </div>
+
+        <!-- Logo -->
+        <div class="col-12 col-md-4 text-md-end text-center">
+          <div class="footer-logo d-inline-block border border-white p-2">
+            <span class="fw-bold fs-4">BARTONS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col text-center small">
+          &copy; 2023 Bartonsuk Limited. All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Các section tiếp theo của Home Page... -->
+  <!-- ... -->
 </ion-content>
+

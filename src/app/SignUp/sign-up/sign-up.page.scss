@@ -1,0 +1,205 @@
+.register-content {
+  --background: #1e1e1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .register-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .register-left,
+  .register-right {
+    flex: 1;
+  }
+
+  .register-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .register-right {
+    background-color: #1e1e1e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+  }
+
+  .register-box {
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .logo {
+    text-align: center;
+    margin-bottom: 20px;
+
+    img {
+      height: 50px;
+    }
+
+    h2 {
+      margin-top: 10px;
+      font-weight: 300;
+
+      strong {
+        font-weight: 700;
+        color: #f5deb3; // màu vàng trà sữa
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-top: 15px;
+      margin-bottom: 5px;
+      color: white;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      padding: 12px;
+      border-radius: 8px;
+      background-color: #2c2c2c;
+      border: none;
+      color: white;
+      font-size: 14px;
+    }
+
+    .password-group {
+      position: relative;
+
+      input {
+        width: 100%; // đảm bảo input chiếm toàn bộ chiều ngang
+        padding-right: 40px; // chừa khoảng trống cho icon con mắt
+      }
+
+      .toggle-password {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+    }
+
+
+    .options {
+      margin-top: 10px;
+      font-size: 13px;
+
+      input[type="checkbox"] {
+        margin-right: 6px;
+      }
+    }
+
+    .register-btn {
+      margin-top: 20px;
+      background-color: #d4a373;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    .register-btn:hover {
+      background-color: #c29065;
+    }
+
+    .divider {
+      text-align: center;
+      margin: 20px 0;
+      color: #999;
+    }
+
+    .google-btn {
+      background-color: white;
+      color: #333;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+
+      .google-icon {
+        margin-right: 6px;
+        background: #d4a373;
+        border-radius: 50%;
+        padding: 4px 8px;
+        color: white;
+      }
+    }
+
+    .login-link {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+
+      a {
+        color: #f5deb3;
+        font-weight: bold;
+      }
+    }
+  }
+}
+.register-left {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.signup-form {
+  max-width: 400px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+input.form-control {
+  height: 45px;
+  font-size: 16px;
+}
+
+button.btn {
+  height: 45px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.google-icon {
+  margin-right: 8px;
+}
+.signup-form {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}

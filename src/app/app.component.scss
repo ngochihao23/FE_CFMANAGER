@@ -1,0 +1,239 @@
+/* Toolbar nền nâu trà sữa đậm, text trắng */
+.custom-toolbar {
+  background-color: rgba(46, 27, 10, 0.85); /* nâu trà sữa đậm, hơi trong suốt */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  color: #cc804b;
+}
+
+/* Menu mobile ion-menu */
+ion-menu {
+  --background: rgba(101, 67, 33, 0.7); /* nền nâu trà sữa mờ */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  color: white;
+}
+
+/* Logo + Brand màu trắng */
+.brand-title {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #cc804b;
+}
+
+/* Căn giữa menu */
+.center-menu {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex: 1;
+  gap: 18px;
+}
+
+/* Các nút menu text trắng */
+.center-menu ion-button {
+color: white;
+  --background: transparent;
+  --ion-color-base: transparent;
+}
+ion-button.menu-link {
+  --color: white;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  padding: 0 10px;
+  transition: 0.2s ease-in-out;
+}
+
+ion-button.menu-link.active-menu {
+  --color: #f7c59f; // Màu sáng nổi bật
+  border-bottom: 2px solid #f7c59f;
+}
+
+
+.center-menu ion-button:hover {
+  color: rgba(172, 119, 80, 0.38); /* màu vàng nhạt khi hover */
+}
+
+/* Khoảng cách nút đăng nhập */
+.auth-buttons ion-button {
+  margin-left: 10px;
+  color: white;
+  border-color: white;
+}
+
+/* Nút primary màu vàng trà sữa */
+.auth-buttons ion-button[color="primary"] {
+  --background: #d4a373; /* vàng nâu ấm */
+  --color: white;
+  border: none;
+}
+
+/* Ẩn menu trên desktop, show trên mobile */
+.ion-hide-md-up {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .ion-hide-md-up {
+    display: inline-flex !important;
+  }
+
+  .ion-hide-sm-down {
+    display: none !important;
+  }
+}
+/* Container ion-row */
+ion-row.custom-user-panel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-right: 12px;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 8px;
+}
+
+/* Greeting text */
+ion-row.custom-user-panel ion-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  margin: 0;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Buttons */
+ion-row.custom-user-panel ion-button {
+  border-radius: 8px;
+  padding: 0 16px;
+  font-weight: 600;
+  height: 36px; /* fix button height for consistency */
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Quản lý quán button (solid light) */
+ion-row.custom-user-panel ion-button[fill="solid"][color="light"] {
+  --background: white;
+  --color: #6b4c3b;
+}
+
+ion-row.custom-user-panel ion-button[fill="solid"][color="light"]:hover {
+  --background: #f2e4d5;
+}
+
+/* Đăng xuất button (outline) */
+ion-row.custom-user-panel ion-button[fill="outline"] {
+  --border-color: white;
+  --color: white;
+}
+
+ion-row.custom-user-panel ion-button[fill="outline"]:hover {
+  --border-color: #f0c040;
+  --color: #f0c040;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 600px) {
+  ion-row.custom-user-panel {
+    justify-content: center;
+    gap: 8px;
+    padding-right: 8px;
+    flex-wrap: wrap;
+  }
+
+  ion-row.custom-user-panel ion-title {
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 6px;
+  }
+
+  ion-row.custom-user-panel ion-button {
+    min-width: 140px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+}
+.main-content {
+  padding-bottom: 80px;
+}
+
+.user-control-panel {
+  position: fixed;
+  bottom: 3px;
+  right: 16px;
+  z-index: 600;
+  background: rgba(0, 0, 0, 0.4); /* Trong suốt hơn */
+  padding: 10px 10px;
+  border-radius: 12px;
+  backdrop-filter: blur(3px);
+  pointer-events: auto; /* Đảm bảo vẫn click được */
+
+}
+.user-name {
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px; }
+
+/* Ẩn phần nút khi màn hình nhỏ hơn 768px (mobile) */
+@media (max-width: 767px) {
+  .user-buttons {
+    display: none !important;
+  }
+}
+
+.user-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+ion-button.admin-btn {
+  font-weight: 500;
+  border-radius: 8px;
+  min-width: 120px;
+  --background: #f5e4d3; /* màu caramel nhạt */
+  --color: #5c3d2e;
+  font-family: 'Poppins', sans-serif;
+  transition: 0.2s ease;
+}
+
+ion-button.admin-btn:hover {
+  --background: #e9d0bb;
+}
+
+ion-button.logout-btn {
+  font-weight: 500;
+  border-radius: 8px;
+  min-width: 100px;
+  --color: white;
+  --border-color: white;
+  font-family: 'Poppins', sans-serif;
+  transition: 0.2s ease;
+}
+
+.modal-backdrop.show {
+  opacity: 0.3 !important;  /* ✅ Giảm độ tối của nền */
+}
+.center-menu {
+  display: flex;
+  justify-content: left; /* Căn giữa ngang */
+  align-items: center;
+  flex: 1;
+  margin-left: -200px; /* Dịch sang trái nhẹ */
+}

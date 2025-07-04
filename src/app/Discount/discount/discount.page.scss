@@ -1,0 +1,60 @@
+
+.page-title {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #3880ff;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.promo-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(56, 128, 255, 0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.promo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(56, 128, 255, 0.25);
+}
+
+.promo-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.promo-info {
+  padding: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-info h2 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.promo-info p {
+  flex-grow: 1;
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+ion-button[size="small"] {
+  align-self: flex-start;
+}
+
+/* Responsive spacing between promo cards */
+ion-col {
+  margin-bottom: 20px;
+}
+

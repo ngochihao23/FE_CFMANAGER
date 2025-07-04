@@ -1,0 +1,93 @@
+<div class="app-container d-flex">
+  <!-- Sidebar -->
+  <!-- Nút mở sidebar cho mobile -->
+  <!-- Nút mở sidebar chỉ hiện trên mobile -->
+  <button class="sidebar-toggle d-md-none" (click)="toggleSidebar()" style="margin-top: 50px">
+    ☰
+  </button>
+
+  <!-- Sidebar -->
+  <div class="sidebar" [class.sidebar-mobile-visible]="isSidebarVisible">
+    <div class="logo">☕ CoffeeSoft</div>
+    <ul class="menu">
+      <li routerLink="./admin">Hệ thống</li>
+      <li routerLink="/admin">DashBoard</li>
+      <li routerLink="/users">Nhân Viên</li>
+      <li class="active" routerLink="/store">Cửa hàng</li>
+      <li routerLink="/table">Bàn</li>
+      <li routerLink="/discount">Thực Đơn</li>
+      <li routerLink="/noibo">Nội Bộ</li>
+      <li routerLink="/order">Đặt và Thanh Toán</li>
+      <li routerLink="/report">Báo cáo</li>
+    </ul>
+  </div>
+
+
+
+  <!-- Main content -->
+  <div class="main-content mt-5 " style="margin-top: 40px">
+    <!-- Nút chức năng -->
+    <ion-button (click)="addStore()" color="primary">➕ Thêm cửa hàng</ion-button>
+    <ion-content class="ion-padding">
+      <h2 class="ion-text-center ion-margin-top">📍 Danh sách Cửa Hàng</h2>
+
+      <!-- Trạng thái đang tải -->
+      <div *ngIf="isLoading" class="text-center ion-margin-top">
+        <ion-spinner name="crescent" color="primary"></ion-spinner>
+        <p>Đang tải dữ liệu...</p>
+      </div>
+
+      <!-- Lỗi khi tải -->
+      <div *ngIf="errorMessage" class="error-message ion-text-center ion-padding">
+        <ion-icon name="alert-circle-outline" color="danger"></ion-icon>
+        <p>{{ errorMessage }}</p>
+      </div>
+
+      <!-- Bảng danh sách cửa hàng -->
+      <div *ngIf="!isLoading && !errorMessage && stores.length > 0" class="table-wrapper ion-padding">
+        <table class="store-table">
+          <thead>
+          <tr>
+            <th>Tên cửa hàng</th>
+            <th>Địa chỉ</th>
+            <th>SĐT</th>
+            <th>Người quản lý</th>
+            <th>Tên đầy đủ</th>
+            <th>Thao tác</th> <!-- thêm cột -->
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of paginatedStores">
+            <td>{{ item.name }}</td>
+            <td>{{ item.address }}</td>
+            <td>{{ item.phoneNumber }}</td>
+            <td>{{ item.manager?.email || 'Không có' }}</td>
+            <td>{{ item.manager?.fullname || 'Không có' }}</td>
+            <td>
+              <ion-button size="small" color="warning" (click)="editStore(item)">✏️</ion-button>
+              <ion-button size="small" color="danger" (click)="deleteStore(item)">🗑️</ion-button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <!-- Không có dữ liệu -->
+      <p *ngIf="!isLoading && !errorMessage && stores.length === 0" class="ion-text-center ion-margin-top">
+        Không có cửa hàng nào.
+      </p>
+    </ion-content>
+
+        <!-- Pagination -->
+    <ion-footer class="ion-text-center ion-padding" style="--background: transparent;">
+      <ion-button fill="clear" size="small" color="medium" (click)="firstPage()" [disabled]="currentPage === 1">⏮️</ion-button>
+      <ion-button fill="clear" size="small" color="medium" (click)="prevPage()" [disabled]="currentPage === 1">◀️</ion-button>
+
+      Trang <strong>{{ currentPage }}</strong> / {{ totalPages }}
+
+      <ion-button fill="clear" size="small" color="medium" (click)="nextPage()" [disabled]="currentPage === totalPages">▶️</ion-button>
+      <ion-button fill="clear" size="small" color="medium" (click)="lastPage()" [disabled]="currentPage === totalPages">⏭️</ion-button>
+    </ion-footer>
+</div>
+</div>

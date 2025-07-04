@@ -1,0 +1,64 @@
+<div class="app-container mt-5">
+  <!-- Toggle button for sidebar on mobile -->
+  <button style="margin-top: 50px" class="sidebar-toggle d-md-none" (click)="toggleSidebar()">
+    ☰
+  </button>
+
+  <div class="sidebar" [class.sidebar-mobile-visible]="isSidebarVisible">
+    <div class="logo">☕ CoffeeSoft</div>
+    <ul class="menu">
+    <li routerLink="./admin" >Hệ thống</li>
+    <li routerLink="/admin">DashBoard</li>
+    <li  routerLink="/users">Nhân Viên</li>
+    <li routerLink="/store">Cửa hàng</li>
+    <li routerLink="/table">Bàn</li>
+    <li routerLink="/discount">Khuyến mãi</li>
+    <li routerLink="/noibo">Nội Bộ</li>
+    <li class="active" routerLink="/order">Đặt và Thanh Toán</li>
+    <li routerLink="/report">Báo cáo</li>
+  </ul>
+
+</div>
+
+  <div class="order-container container mt-4 text-black">
+    <!-- Chọn bàn -->
+    <div class="row mb-3 align-items-center">
+      <div class="col-md-6 col-12 mb-2">
+        <label for="tableSelect" class="form-label fw-bold  text-black">🪑 Chọn bàn</label>
+        <select id="tableSelect" class="form-select  text-black" [(ngModel)]="selectedTableId" (change)="loadOrdersForTable()">
+          <option *ngFor="let table of tables" [value]="table.id">{{ table.name }}</option>
+        </select>
+      </div>
+      <div class="col-md-6 col-12 text-md-end">
+        <button class="btn btn-outline-primary w-100 w-md-auto" (click)="loadOrdersForTable()">
+          🔄 Xem lịch sử đơn
+        </button>
+      </div>
+    </div>
+
+    <!-- Lịch sử đơn hàng -->
+    <div class="row">
+      <div *ngFor="let order of orders" class="col-md-6 col-lg-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title">🧾 Đơn lúc {{ order.createdAt | date:'short' }}</h5>
+            <p class="mb-2"><strong>Bàn:</strong> {{ order.tableName }}</p>
+            <p class="mb-2"><strong>Tổng tiền:</strong> {{ order.totalAmount | currency:'VND' }}</p>
+            <p class="mb-1"><strong>Món đã gọi:</strong></p>
+            <ul class="mb-0">
+              <li *ngFor="let item of order.items">
+                {{ item.menuItemName }} x{{ item.quantity }} - {{ item.unitPrice | currency:'VND' }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <ng-container *ngIf="orderItems">
+        <p *ngIf="orderItems.length === 0">Chưa có món nào</p>
+      </ng-container>
+
+    </div>
+  </div>
+
+
+</div>

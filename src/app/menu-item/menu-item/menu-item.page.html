@@ -1,0 +1,76 @@
+<div class="app-container d-flex">
+
+  <button style="margin-top: 50px" class="sidebar-toggle d-md-none" (click)="toggleSidebar()">
+    ☰
+  </button>
+  <!-- Sidebar -->
+  <div class="sidebar" [class.sidebar-mobile-visible]="isSidebarVisible">
+  <div class="logo">☕ CoffeeSoft</div>
+      <ul class="menu">
+        <li >Hệ thống</li>
+        <li routerLink="/dashboard">DashBoard</li>
+        <li routerLink="/users">Nhân Viên</li>
+        <li routerLink="/store">Cửa hàng</li>
+        <li routerLink="/table">Bàn</li>
+        <li class="active" routerLink="/menu-item">Thực Đơn</li>
+        <li routerLink="/noibo">Nội Bộ</li>
+        <li routerLink="/order">Đặt và Thanh Toán</li>
+        <li routerLink="/report">Báo cáo</li>
+      </ul>
+
+    </div>
+  </div>
+
+  <div class="container mt-4">
+    <!-- Thanh tìm kiếm và lọc -->
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="🔍 Tìm món..."
+          [(ngModel)]="searchText"
+        />
+      </div>
+
+      <div class="col-md-4">
+        <select
+          class="form-select"
+          [(ngModel)]="selectedCategory"
+        >
+          <option *ngFor="let category of uniqueCategories" [value]="category">
+            {{ category }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-4 text-end">
+        <button class="btn btn-secondary" (click)="toggleSidebar()">
+          {{ isSidebarVisible ? 'Ẩn Sidebar' : 'Hiện Sidebar' }}
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Danh sách món ăn -->
+    <div class="row">
+      <div *ngFor="let item of filteredMenuItems" class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <p class="card-text">💰 {{ item.price | currency:'VND' }}</p>
+            <p class="card-text"><i>📂 {{ item.category }}</i></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trường hợp không có món nào -->
+      <div *ngIf="filteredMenuItems.length === 0" class="col-12">
+        <div class="alert alert-warning text-center">
+          Không tìm thấy món nào phù hợp.
+        </div>
+      </div>
+    </div>
+  </div>
+
+

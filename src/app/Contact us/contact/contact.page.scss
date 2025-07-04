@@ -1,0 +1,129 @@
+.contact-1 {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  background-image: url('/assets/img/background_image.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 80vh auto; /* hoặc contain tùy ảnh */
+  background-attachment: scroll; /* Không cuộn cố định */
+}
+
+
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+  gap: 60px;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: #b56943;
+  margin-bottom: 40px;
+}
+
+.contact-left {
+  flex: 1;
+  min-width: 250px;
+}
+
+.feedback-block {
+  margin-bottom: 30px;
+}
+
+.feedback-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: #b56943;
+  margin-bottom: 8px;
+}
+
+.feedback-text {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.phone {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  color: #b56943;
+  font-weight: bold;
+}
+
+.phone::before {
+  content: "📞";
+  margin-right: 8px;
+}
+
+.contact-right {
+  flex: 1;
+  min-width: 300px;
+  border-radius: 10px;
+
+}
+.contact-form button {
+  background-color: #b56943;
+  color: white;
+  font-size: 18px;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #944b2e;
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+  }
+}
+.contact-form input,
+.contact-form textarea {
+  border: 2px solid #c97c5d; /* hoặc màu bạn muốn */
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  box-sizing: border-box;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+
+.contact-form button:hover {
+  background-color: #a95e3e;
+}
+.contact-form button {
+  border: 2px solid #c97c5d;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #c97c5d;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: end;
+}

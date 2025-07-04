@@ -1,0 +1,169 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #1e1e2f, #2e2e42);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  border-left: 3px solid transparent;
+}
+
+.menu li:hover,
+.menu li.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #ffb74d;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.row{
+  margin-top: 50px;
+}
+/* Sidebar */
+/* Sidebar toggle button */
+
+/* Sidebar mặc định */
+.sidebar {
+  width: 220px;
+  background-color: #fff;
+  padding: 15px;
+  height: 100vh;
+  border-right: 1px solid #ddd;
+}
+
+/* Trên mobile (ẩn sidebar mặc định) */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%; /* <= chỉ chiếm 80% màn hình */
+    height: 100%;
+    background-color: #1e1e2f;
+    z-index: 1050;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .sidebar.sidebar-mobile-visible {
+    display: block;
+  }
+
+
+
+  /* Khi bật class sidebar-mobile-visible => hiện ra */
+  .sidebar.sidebar-mobile-visible {
+    display: block;
+  }
+}
+
+
+/* --- Toggle button --- */
+.sidebar-mobile-visible {
+  transform: translateX(0) !important;
+}
+
+/* --- Toggle button --- */
+.sidebar-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #343a40;
+}
+/* Giữ khoảng cách đều giữa các phần tử */
+.container {
+  padding: 1rem;
+}
+
+/* Input tìm kiếm và select dropdown */
+input.form-control,
+select.form-select {
+  font-size: 1rem;
+  padding: 0.6rem;
+  border-radius: 8px;
+}
+
+/* Nút Toggle Sidebar */
+.btn-secondary {
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+/* Card món ăn */
+.card {
+  border-radius: 12px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Responsive cho mobile */
+@media (max-width: 767px) {
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+  }
+
+  .btn-secondary {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .row.mb-3 > div {
+    margin-bottom: 10px;
+  }
+}
